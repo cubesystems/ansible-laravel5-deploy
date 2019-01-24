@@ -21,6 +21,6 @@
 
 - name: Create public storage symlink
   file: state=link src={{ laravel_root_dir }}/shared/storage/app/public path={{ laravel_root_dir }}/releases/{{ release_version.stdout }}/public/storage
-  when: storage_symlink is success
+  when: laravel_create_public_storage_symlink == true and storage_symlink is success
   register: symlinks_created
   ignore_errors: true

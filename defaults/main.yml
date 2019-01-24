@@ -12,4 +12,5 @@ laravel_local_root: /
 laravel_local_archive_path: false
 laravel_local_env_path: false
 laravel_cron: true
-laravel_create_shared_directories: true;
+laravel_create_shared_directories: true
+laravel_create_public_storage_symlink: true
