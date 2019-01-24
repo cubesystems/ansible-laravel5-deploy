@@ -29,9 +29,6 @@
 - name: Create symlinks.
   import_tasks: symlinks.yml
 
-- name: Add crontab entry.
-  import_tasks: cron.yml
-
 - name: Cleanup on symlinks failure.
   file: path={{ laravel_root_dir }}/releases/{{ release_version.stdout }} state=absent
   when: symlinks_created is failed
@@ -53,6 +50,9 @@
   fail:
     msg: Composer install failed!
   when: laravel_composer_install=='true' and composer_install_complete is failed
+
+- name: Add crontab entry.
+  import_tasks: cron.yml
 
 - name: Run release artisan commands
   import_tasks: release_artisan_commands.yml
