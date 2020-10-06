@@ -1,6 +1,6 @@
 - name: Add crontab entry for Laravel scheduler
   tags: cron
   cron:
-      name: "Run Laravel scheduler"
+      name: "Run {{ laravel_cron_scheduler_name }}"
       job: "{{laravel_php_path}} {{ laravel_root_dir }}/current/artisan schedule:run --quiet"
   when: laravel_cron == true
